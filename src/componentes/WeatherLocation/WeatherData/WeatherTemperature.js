@@ -1,30 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import lluvioso from '../../../lluvioso.png';
-import soleado from '../../../soleado.png';
-import {
-    RAINY,
-    SUNNY
-} from '../../../constants/weathers';
 import './styles.css';
 
-const icons = {
-    [RAINY] : lluvioso,
-    [SUNNY] : soleado
-};
+const getIcon = icon=>{
+    const icon_endpoint = "http://openweathermap.org/img/wn/";
+    return `${icon_endpoint}${icon}.png`;
+}
 
- 
-const getWeatherIcon = weatherState => {
-    var icon = icons[weatherState];
-    if(!icon){
-        icon = icons[SUNNY];
-    }
-    return <img class="wicon" src={icon} width="48px" />;
-};
-
-const WeatherTemperature = ({ temperature, weatherState }) => (
+const WeatherTemperature = ({ temperature, icon }) => (
     <div className="weatherTemperatureCont">
-        {getWeatherIcon(weatherState)}
+        <img alt="" className="wicon" src={getIcon(icon)} width="70px" />
         <span className="temperature">
             {`${temperature}`}
         </span>
