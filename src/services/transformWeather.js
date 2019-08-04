@@ -7,7 +7,7 @@ const transformWeather = wdata => {
 
     const data = {
         humidity,
-        temperature : temp,
+        temperature : temp.toFixed(0),
         wind: `${speed} m/s`,
         icon
     };

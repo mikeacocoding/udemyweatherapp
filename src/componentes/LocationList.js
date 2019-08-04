@@ -1,5 +1,6 @@
 import React from 'react';
 import WeatherLocation from './WeatherLocation';
+import './styles.css';
 
 const LocationList = ({ cities,onSelectedLocation }) => {
 
@@ -8,8 +9,8 @@ const LocationList = ({ cities,onSelectedLocation }) => {
         onSelectedLocation(city);
     }
 
-    return <div>
-        ${
+    return <div className="locationList">
+        {
             cities.map(city => 
                 <WeatherLocation
                      key={city}
